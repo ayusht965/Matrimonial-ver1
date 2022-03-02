@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
+import 'package:matrimonial_1/app/theme/theme.providers.dart';
 import 'package:matrimonial_1/core/notifier/authentication.notifier.dart';
 import 'package:provider/provider.dart';
 import 'package:matrimonial_1/meta/views/authentication/login.view.dart';
@@ -26,7 +28,7 @@ class _OtpState extends State<Otp> {
         Provider.of<AuthenticationNotifier>(context, listen: false);
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: Color(0xfff7f6fb),
+      backgroundColor: AppTheme.secondary,
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(vertical: 24, horizontal: 32),
@@ -50,24 +52,27 @@ class _OtpState extends State<Otp> {
               Expanded(
                 flex: 4,
                 child: Container(
+                  padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
-                    color: Colors.deepPurple.shade50,
+                    color: AppTheme.primary.withOpacity(0.2),
                     shape: BoxShape.circle,
                   ),
-                  child: Image.asset(
-                    'assets/images/illustration-3.png',
+                  child: Lottie.network(
+                    'https://assets6.lottiefiles.com/packages/lf20_o7vsrokz.json',
+                    width: MediaQuery.of(context).size.width * 0.6,
                   ),
                 ),
               ),
               Expanded(
                 flex: 1,
                 child: Column(
-                  children: [
+                  children: const [
                     Text(
                       'Verification',
                       style: TextStyle(
                         fontSize: 22,
                         fontWeight: FontWeight.bold,
+                        color: AppTheme.primary,
                       ),
                     ),
                     Text(
@@ -112,18 +117,7 @@ class _OtpState extends State<Otp> {
                                 context: context,
                                 token: getOTP());
                           },
-                          style: ButtonStyle(
-                            foregroundColor:
-                                MaterialStateProperty.all<Color>(Colors.white),
-                            backgroundColor:
-                                MaterialStateProperty.all<Color>(Colors.purple),
-                            shape: MaterialStateProperty.all<
-                                RoundedRectangleBorder>(
-                              RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(24.0),
-                              ),
-                            ),
-                          ),
+                          style: AppTheme.primaryButton,
                           child: Padding(
                             padding: EdgeInsets.all(14.0),
                             child: Text(
@@ -157,7 +151,7 @@ class _OtpState extends State<Otp> {
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
-                        color: Colors.purple,
+                        color: AppTheme.primary,
                       ),
                       textAlign: TextAlign.center,
                     ),
@@ -196,10 +190,10 @@ class _OtpState extends State<Otp> {
           decoration: InputDecoration(
             counter: Offstage(),
             enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(width: 2, color: Colors.black12),
+                borderSide: const BorderSide(width: 2, color: Colors.black12),
                 borderRadius: BorderRadius.circular(12)),
             focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(width: 2, color: Colors.purple),
+                borderSide: const BorderSide(width: 2, color: AppTheme.primary),
                 borderRadius: BorderRadius.circular(12)),
           ),
         ),

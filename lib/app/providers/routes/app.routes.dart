@@ -3,7 +3,7 @@ import 'package:matrimonial_1/meta/views/authentication/email_authentication/sig
 import 'package:matrimonial_1/meta/views/authentication/login.view.dart';
 import 'package:matrimonial_1/meta/views/authentication/otp.view.dart';
 import 'package:matrimonial_1/meta/views/authentication/welcome.view.dart';
-import 'package:matrimonial_1/meta/views/splashScreen/splashScreen.dart';
+import 'package:matrimonial_1/meta/views/splashScreen/splashScreen.view.dart';
 
 class AppRoutes {
   static const String SplashRoute = "/";
