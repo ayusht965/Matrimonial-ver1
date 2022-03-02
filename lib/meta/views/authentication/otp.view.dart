@@ -4,17 +4,26 @@ import 'package:provider/provider.dart';
 import 'package:matrimonial_1/meta/views/authentication/login.view.dart';
 
 class Otp extends StatefulWidget {
-  const Otp({Key? key}) : super(key: key);
+  TextEditingController phoneNumberController = TextEditingController();
+  Otp({Key? key, phoneNumberController}) : super(key: key);
 
   @override
   _OtpState createState() => _OtpState();
 }
 
 class _OtpState extends State<Otp> {
+  List<TextEditingController> otp =
+      List.generate(4, (index) => TextEditingController());
+
+  String getOTP() {
+    return otp.map((e) => e.text).join();
+  }
+
   String var2 = "";
   @override
   Widget build(BuildContext context) {
-    AuthenticationNotifier authenticationNotifier = Provider.of<AuthenticationNotifier>(context, listen: false);
+    AuthenticationNotifier authenticationNotifier =
+        Provider.of<AuthenticationNotifier>(context, listen: false);
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Color(0xfff7f6fb),
@@ -97,8 +106,11 @@ class _OtpState extends State<Otp> {
                       SizedBox(
                         width: double.infinity,
                         child: ElevatedButton(
-                          onPressed: () async{
-                            authenticationNotifier.verifyPhoneNumber(phone: phoneNumberController.text, context: context, token: token)
+                          onPressed: () async {
+                            authenticationNotifier.verifyPhoneNumber(
+                                phone: widget.phoneNumberController.text,
+                                context: context,
+                                token: getOTP());
                           },
                           style: ButtonStyle(
                             foregroundColor:

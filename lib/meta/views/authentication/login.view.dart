@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:matrimonial_1/app/providers/routes/app.routes.dart';
 import 'package:matrimonial_1/core/notifier/authentication.notifier.dart';
+import 'package:matrimonial_1/meta/views/authentication/otp.view.dart';
 import 'package:provider/provider.dart';
 
 class Login extends StatefulWidget {
@@ -136,7 +137,10 @@ class _LoginState extends State<Login> {
                             authenticationNotifier.sendVerificationCode(
                                 phoneNumber: phoneNumberController.text,
                                 context: context);
-                            Navigator.of(context).pushNamed(AppRoutes.OtpRoute);
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (_) => Otp(
+                                    phoneNumberController:
+                                        phoneNumberController)));
                           },
                           style: ButtonStyle(
                             foregroundColor:

@@ -3,8 +3,10 @@ import 'package:matrimonial_1/meta/views/authentication/email_authentication/sig
 import 'package:matrimonial_1/meta/views/authentication/login.view.dart';
 import 'package:matrimonial_1/meta/views/authentication/otp.view.dart';
 import 'package:matrimonial_1/meta/views/authentication/welcome.view.dart';
+import 'package:matrimonial_1/meta/views/splashScreen/splashScreen.dart';
 
 class AppRoutes {
+  static const String SplashRoute = "/";
   static const String WelcomeRoute = "/welcome";
   static const String LoginRoute = "/login";
   static const String OtpRoute = "/otp";
@@ -12,12 +14,13 @@ class AppRoutes {
   static const String SignUpEmailRoute = "/signupEmail";
 
   static final routes = {
-    WelcomeRoute: (context) => Welcome(),
+    SplashRoute: (context) => const SplashScreen(),
+    WelcomeRoute: (context) => const Welcome(),
     //phone auth routes
     LoginRoute: (context) => Login(),
     OtpRoute: (context) => Otp(),
     //email Auth routes
-    LoginEmailRoute: (context) => LoginEmail(),
-    SignUpEmailRoute: (context) => SignupEmail(),
+    LoginEmailRoute: (context) => const LoginEmail(),
+    SignUpEmailRoute: (context) => const SignupEmail(),
   };
 }
