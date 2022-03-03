@@ -23,7 +23,7 @@ class Lava extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: AppRoutes.WelcomeRoute,
+      initialRoute: AppRoutes.SplashRoute,
       routes: AppRoutes.routes,
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark(),

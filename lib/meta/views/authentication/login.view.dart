@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:matrimonial_1/app/providers/routes/app.routes.dart';
+import 'package:matrimonial_1/app/theme/theme.providers.dart';
 import 'package:matrimonial_1/core/notifier/authentication.notifier.dart';
+import 'package:matrimonial_1/meta/views/authentication/otp.view.dart';
 import 'package:provider/provider.dart';
 
 class Login extends StatefulWidget {
@@ -29,7 +32,7 @@ class _LoginState extends State<Login> {
         Provider.of<AuthenticationNotifier>(context, listen: false);
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: Color(0xfff7f6fb),
+      backgroundColor: AppTheme.secondary,
       body: SingleChildScrollView(
         child: SafeArea(
           bottom: false,
@@ -55,12 +58,11 @@ class _LoginState extends State<Login> {
                   width: 200,
                   height: 200,
                   decoration: BoxDecoration(
-                    color: Colors.deepPurple.shade50,
+                    color: AppTheme.primary.withOpacity(0.2),
                     shape: BoxShape.circle,
                   ),
-                  child: Image.asset(
-                    'assets/images/illustration-2.png',
-                  ),
+                  child: Lottie.network(
+                      'https://assets6.lottiefiles.com/packages/lf20_sgckw5ls.json'),
                 ),
                 SizedBox(
                   height: 24,
@@ -70,6 +72,7 @@ class _LoginState extends State<Login> {
                   style: TextStyle(
                     fontSize: 22,
                     fontWeight: FontWeight.bold,
+                    color: AppTheme.primary,
                   ),
                 ),
                 SizedBox(
@@ -136,20 +139,12 @@ class _LoginState extends State<Login> {
                             authenticationNotifier.sendVerificationCode(
                                 phoneNumber: phoneNumberController.text,
                                 context: context);
-                            Navigator.of(context).pushNamed(AppRoutes.OtpRoute);
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (_) => Otp(
+                                    phoneNumberController:
+                                        phoneNumberController)));
                           },
-                          style: ButtonStyle(
-                            foregroundColor:
-                                MaterialStateProperty.all<Color>(Colors.white),
-                            backgroundColor:
-                                MaterialStateProperty.all<Color>(Colors.purple),
-                            shape: MaterialStateProperty.all<
-                                RoundedRectangleBorder>(
-                              RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(24.0),
-                              ),
-                            ),
-                          ),
+                          style: AppTheme.primaryButton,
                           child: Padding(
                             padding: EdgeInsets.all(14.0),
                             child: Text(
