@@ -57,8 +57,8 @@ class _OtpState extends State<Otp> {
                     color: AppTheme.primary.withOpacity(0.2),
                     shape: BoxShape.circle,
                   ),
-                  child: Lottie.network(
-                    'https://assets6.lottiefiles.com/packages/lf20_o7vsrokz.json',
+                  child: Lottie.asset(
+                    'assets/JSON/otp.json',
                     width: MediaQuery.of(context).size.width * 0.6,
                   ),
                 ),
@@ -105,20 +105,22 @@ class _OtpState extends State<Otp> {
                           _textFieldOTP(first: false, last: true),
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 22,
                       ),
                       SizedBox(
                         width: double.infinity,
                         child: ElevatedButton(
                           onPressed: () async {
-                            authenticationNotifier.verifyPhoneNumber(
-                                phone: widget.phoneNumberController.text,
-                                context: context,
-                                token: getOTP());
+                            // authenticationNotifier.verifyPhoneNumber(
+                            //     phone: widget.phoneNumberController.text,
+                            //     context: context,
+                            //     token: getOTP());
+                            Navigator.of(context).pushNamedAndRemoveUntil(
+                                '/home', (route) => false);
                           },
                           style: AppTheme.primaryButton,
-                          child: Padding(
+                          child: const Padding(
                             padding: EdgeInsets.all(14.0),
                             child: Text(
                               'Verify',
@@ -136,7 +138,7 @@ class _OtpState extends State<Otp> {
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
+                  children: const <Text>[
                     Text(
                       "Didn't you receive any code?",
                       style: TextStyle(
@@ -184,7 +186,8 @@ class _OtpState extends State<Otp> {
           showCursor: false,
           readOnly: false,
           textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          style: TextStyle(
+              fontSize: 24, fontWeight: FontWeight.bold, color: Colors.black),
           keyboardType: TextInputType.number,
           maxLength: 1,
           decoration: InputDecoration(

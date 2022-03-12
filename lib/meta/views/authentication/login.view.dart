@@ -61,8 +61,8 @@ class _LoginState extends State<Login> {
                     color: AppTheme.primary.withOpacity(0.2),
                     shape: BoxShape.circle,
                   ),
-                  child: Lottie.network(
-                      'https://assets6.lottiefiles.com/packages/lf20_sgckw5ls.json'),
+                  child: Lottie.asset(
+                      'assets/JSON/login.json'),
                 ),
                 SizedBox(
                   height: 24,
@@ -104,6 +104,7 @@ class _LoginState extends State<Login> {
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
+                          color: Colors.black,
                         ),
                         decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
@@ -117,9 +118,9 @@ class _LoginState extends State<Login> {
                             child: Text(
                               '(+91)',
                               style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                              ),
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black),
                             ),
                           ),
                           suffixIcon: Icon(

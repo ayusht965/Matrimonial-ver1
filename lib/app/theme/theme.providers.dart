@@ -23,4 +23,10 @@ abstract class AppTheme {
     side: MaterialStateProperty.all<BorderSide>(
         const BorderSide(color: AppTheme.primary, width: 0.5)),
   );
+
+  static TextStyle inputTextStyle = const TextStyle(
+    fontSize: 24,
+    fontWeight: FontWeight.bold,
+    color: Colors.black,
+  );
 }

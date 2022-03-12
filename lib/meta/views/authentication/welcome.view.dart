@@ -24,8 +24,8 @@ class _WelcomeState extends State<Welcome> {
           mainAxisAlignment: MainAxisAlignment.center,
           mainAxisSize: MainAxisSize.max,
           children: [
-            Lottie.network(
-              'https://assets8.lottiefiles.com/packages/lf20_we4yddwi.json',
+            Lottie.asset(
+              'assets/JSON/welcome.json',
               width: MediaQuery.of(context).size.width,
             ),
             SizedBox(
