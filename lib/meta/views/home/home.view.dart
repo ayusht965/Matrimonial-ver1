@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:matrimonial_1/app/providers/routes/app.routes.dart';
 import 'package:matrimonial_1/app/theme/theme.providers.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -43,7 +44,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 Icons.settings,
                 color: Colors.black,
               ),
-              onPressed: () {},
+              onPressed: () =>
+                  Navigator.of(context).pushNamed(AppRoutes.ProfileRoute),
             ),
             IconButton(
               icon: const Icon(

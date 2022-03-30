@@ -5,6 +5,7 @@ import 'package:matrimonial_1/meta/views/authentication/otp.view.dart';
 import 'package:matrimonial_1/meta/views/authentication/welcome.view.dart';
 import 'package:matrimonial_1/meta/views/home/home.view.dart';
 import 'package:matrimonial_1/meta/views/splashScreen/splashScreen.view.dart';
+import 'package:matrimonial_1/profile/profile_screen.dart';
 
 class AppRoutes {
   static const String SplashRoute = "/";
@@ -14,6 +15,7 @@ class AppRoutes {
   static const String LoginEmailRoute = "/loginEmail";
   static const String SignUpEmailRoute = "/signupEmail";
   static const String HomeRoute = "/home";
+  static const String ProfileRoute = "/profile";
 
   static final routes = {
     SplashRoute: (context) => const SplashScreen(),
@@ -26,5 +28,7 @@ class AppRoutes {
     SignUpEmailRoute: (context) => const SignupEmail(),
     // Home page
     HomeRoute: (context) => const HomeScreen(),
+    //profile
+    ProfileRoute: (context) => ProfileScreen()
   };
 }
