@@ -26,7 +26,7 @@ class Lava extends StatelessWidget {
       initialRoute: AppRoutes.SplashRoute,
       routes: AppRoutes.routes,
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark(),
+      theme: ThemeData(),
     );
   }
 }
