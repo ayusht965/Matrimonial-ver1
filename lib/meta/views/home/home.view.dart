@@ -185,7 +185,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           )
                         ],
                       )),
-                  child: ProfileView().px12(),
+                  child: ProfileView(id: index).px12(),
                 ),
                 itemCount: 10,
               ),
